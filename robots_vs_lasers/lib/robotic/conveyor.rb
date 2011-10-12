@@ -19,10 +19,10 @@ module Robotic
 
     private
 
-    attr_reader :east_end, :west_end
+    attr_reader :east_end, :west_end, :north_side, :south_side
 
     def damage(params)
-      side_chooser = [@north_side, @south_side].cycle
+      side_chooser = [north_side, south_side].cycle
 
       positions_between(params[:from], params[:to]).reduce(0) do |damage, pos_x|
         side = side_chooser.next
