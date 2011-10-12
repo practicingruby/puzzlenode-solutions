@@ -9,7 +9,7 @@
 
 ## Run the tests
    
-   $ ruby test/suite.rb
+    $ ruby test/suite.rb
 
 ## Problem Description
 
