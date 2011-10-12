@@ -8,13 +8,15 @@ module Robotic
     end
 
     def conveyor_data
-      north, middle, south = @text.split
+      north, middle, south = text.split
       { :north_side     => wall_data(north),
         :south_side     => wall_data(south),
         :robot_position => middle.index(ROBOT_SYMBOL) }
     end
 
     private
+
+    attr_reader :text
 
     def wall_data(wall_text)
       wall_text.chars.map { |e| CONVEYOR_SYMBOLS[e] }
