@@ -10,3 +10,7 @@
 ## Run the tests
    
    $ ruby test/suite.rb
+
+## Problem Description
+
+You can find the full problem description at: http://puzzlenode.com/puzzles/6
