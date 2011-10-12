@@ -10,14 +10,16 @@ module Robotic
       @west_end   = 0
     end
 
-    attr_reader :east_end, :west_end
-
     def safest_path_from(position)
       east_damage = damage(:from => position, :to => east_end)  
       west_damage = damage(:from => position, :to => west_end)
 
       east_damage < west_damage ? :east : :west
     end
+
+    private
+
+    attr_reader :east_end, :west_end
 
     def damage(params)
       side_chooser = [@north_side, @south_side].cycle
@@ -27,8 +29,6 @@ module Robotic
         side[pos_x] == :laser ? damage + 1 : damage
       end
     end
-
-    private
 
     def positions_between(from_pos, to_pos)
       from_pos < to_pos ? from_pos.upto(to_pos) : from_pos.downto(to_pos)
