@@ -4,8 +4,6 @@ module Robotic
       @input_file = args.first
     end
 
-    attr_accessor :output
-
     def run
       File.read(@input_file).chomp.split("\n\n").each do |conveyor_text|
         data     = Robotic::Parser.new(conveyor_text).conveyor_data
