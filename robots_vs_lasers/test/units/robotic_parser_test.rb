@@ -10,7 +10,7 @@ describe "Robotic::Parser" do
 
     expected_data = { :north_side     => north_side, 
                       :south_side     => south_side, 
-                      :robot_position => 3           }
+                      :robot_position => 3 }
 
     parsed_data.must_equal(expected_data)
   end

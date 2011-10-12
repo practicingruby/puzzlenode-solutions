@@ -13,15 +13,10 @@ module Robotic
     attr_reader :east_end, :west_end
 
     def safest_path_from(position)
-      east_damage_from(position) < west_damage_from(position) ? :east : :west
-    end
+      east_damage = damage(:from => position, :to => east_end)  
+      west_damage = damage(:from => position, :to => west_end)
 
-    def east_damage_from(position)
-      damage(:from => position, :to => east_end) 
-    end
-
-    def west_damage_from(position)
-      damage(:from => position, :to => west_end)
+      east_damage < west_damage ? :east : :west
     end
 
     def damage(params)
