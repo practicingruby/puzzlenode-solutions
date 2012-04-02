@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/seekrit/cracker"
+
+key, _, *body = File.read(ARGV[0]).lines.to_a
+
+print Seekrit::Cracker.new(key.chomp).decode(body.join).chomp
