@@ -1,3 +1,5 @@
+require_relative "letter_shifter"
+
 module Seekrit
   class VigenereCipher
     def initialize(input)
@@ -5,12 +7,9 @@ module Seekrit
     end
 
     def decode(key)
-      offsets   = key.chars.map(&:ord).cycle
+      offsets = key.chars.map { |x| "A".ord - x.ord }.cycle
 
-      @input.chars.map { |c|
-        next c unless ("A".."Z").include?(c)
-        ("A".ord + ((c.ord - offsets.next) % 26)).chr
-      }.join
+      input.chars.map { |e| LetterShifter.shift(e) { offsets.next } }.join
     end
 
     private

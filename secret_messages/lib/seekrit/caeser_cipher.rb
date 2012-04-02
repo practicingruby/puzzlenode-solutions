@@ -1,3 +1,5 @@
+require_relative "letter_shifter"
+
 module Seekrit
   class CaeserCipher 
     def initialize(input)
@@ -5,9 +7,7 @@ module Seekrit
     end
 
     def decode(offset)
-      mapping = Hash[*("A".."Z").zip(("A".."Z").to_a.rotate(offset)).flatten]
-
-      input.chars.map { |e| mapping[e] || e }.join
+      input.chars.map { |e| LetterShifter.shift(e) { offset } }.join
     end
 
     def shifts
