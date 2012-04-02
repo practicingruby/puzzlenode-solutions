@@ -1,4 +1,5 @@
 require_relative "caeser_cipher"
+require_relative "vigenere_cipher"
 require_relative "dictionary"
 
 module Seekrit
@@ -13,6 +14,10 @@ module Seekrit
       cipher = CaeserCipher.new(@encoded_key)
 
       cipher.shifts.find { |e| Dictionary.include?(e) } || raise(KeyError)
+    end
+
+    def decode(message)
+      VigenereCipher.new(message).decode(decoded_key)
     end
   end
 end
