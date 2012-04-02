@@ -5,19 +5,15 @@ module Seekrit
     end
 
     def decode(key)
-      offsets_enum = offsets(key).cycle
+      offsets   = key.chars.map(&:ord).cycle
 
       @input.chars.map { |c|
         next c unless ("A".."Z").include?(c)
-        (((c.ord - "A".ord) - offsets_enum.next) % 26 + "A".ord).chr
+        ("A".ord + ((c.ord - offsets.next) % 26)).chr
       }.join
     end
 
     private
-
-    def offsets(key)
-      key.chars.map { |x| (x.ord - "A".ord) }
-    end
 
     attr_accessor :input
   end
