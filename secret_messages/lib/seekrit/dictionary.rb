@@ -1,3 +1,5 @@
+require "shellwords"
+
 module Seekrit
   class << (Dictionary = Object.new)
     def inspect
@@ -5,7 +7,9 @@ module Seekrit
     end
 
     def include?(word)
-      !!File.foreach("/usr/share/dict/words").find { |l| l =~ /^#{word}$/ }
+      results = `grep ^#{Shellwords.shellescape(word)}$ /usr/share/dict/words`
+
+      results.chomp == word
     end
   end
 end
