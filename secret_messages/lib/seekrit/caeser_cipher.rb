@@ -7,7 +7,7 @@ module Seekrit
     def decode(offset)
       mapping = Hash[*("A".."Z").zip(("A".."Z").to_a.rotate(offset)).flatten]
 
-      @input.chars.map { |e| mapping[e] || e }.join
+      input.chars.map { |e| mapping[e] || e }.join
     end
 
     def shifts
