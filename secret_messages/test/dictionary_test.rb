@@ -8,6 +8,12 @@ describe Seekrit::Dictionary do
     Seekrit::Dictionary.must_include("explosion")
   end
 
+  it "must do case-insensitive matching" do
+    Seekrit::Dictionary.must_include("CAT")
+    Seekrit::Dictionary.must_include("CaT")
+    Seekrit::Dictionary.must_include("Cat")
+  end
+
   it "must be able to identify invalid words" do
     Seekrit::Dictionary.wont_include("roflcopters")
   end

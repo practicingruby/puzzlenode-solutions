@@ -1,3 +1,5 @@
 >> File.foreach("/usr/share/dict/words").find { |l| l =~ /^apple$/i }.chomp
 => "apple
 
+Tempted to provide a mock dictionary file, but YAGNI? (could have been an
+alternate way to deal with performance)
