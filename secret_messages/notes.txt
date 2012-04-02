@@ -3,3 +3,9 @@
 
 Tempted to provide a mock dictionary file, but YAGNI? (could have been an
 alternate way to deal with performance)
+
+Time spent on test boilerplate noticeably tedious and boring. Hard to maintain
+focus.
+
+Seekrit::Cracker has dependencies, would people seriously mock in this
+situation?  Also... explicitly mentioning 0..25 in Cracker legit?

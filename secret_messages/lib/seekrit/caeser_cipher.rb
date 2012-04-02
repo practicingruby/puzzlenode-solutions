@@ -10,6 +10,12 @@ module Seekrit
       @input.chars.map { |e| mapping[e] || e }.join
     end
 
+    def shifts
+      Enumerator.new do |yielder|
+        (0..25).each { |i| yielder.yield(decode(i)) }
+      end
+    end
+
     private
 
     attr_reader :input
