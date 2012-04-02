@@ -1,4 +1,4 @@
-require "minitest/autorun"
+require_relative "helper"
 
 CURRENT_DIR = File.expand_path(File.dirname(__FILE__))
 

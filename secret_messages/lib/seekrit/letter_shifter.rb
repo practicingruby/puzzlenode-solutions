@@ -1,8 +1,8 @@
 module Seekrit
-  class << (LetterShifter = Object.new)
+  module LetterShifter
     ALPHABET = ("A".."Z").to_a
 
-    def shift(letter, &offset)
+    def self.shift(letter, &offset)
       return letter unless ALPHABET.include?(letter)
 
       letter_position = (letter.ord - "A".ord)

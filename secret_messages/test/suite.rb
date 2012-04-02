@@ -1,4 +1,8 @@
-require "minitest/autorun"
+require "simplecov"
+
+SimpleCov.start
+
+require_relative "helper"
 
 require_relative "caeser_cipher_test"
 require_relative "vigenere_cipher_test"

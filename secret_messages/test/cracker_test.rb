@@ -1,5 +1,5 @@
+require_relative "helper"
 require_relative "../lib/seekrit/cracker"
-require "minitest/autorun"
 
 describe Seekrit::Cracker do
   it "must be able to decode the key" do
